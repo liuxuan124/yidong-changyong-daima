@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>区分平台类型</title>
+</head>
+<body>
+	<script type="text/javascript">
+	    window.onload = function(){
+	    	function mobPlatformType(){
+	    		var platformType = "others",
+	    		platforms = [
+	    		   "iphone",
+	    		   "ipod",
+	    		   "ipad",
+	    		   "android",
+	    		   "windows phone os"
+	    		],
+	    		reg = null,
+	    		userAgent = navigator.userAgent.toLowerCase(),//toLowerCase()全部转换成小写。
+	    		i = 0,
+	    		l = platforms.length,
+	    		p = "";
+	    		for (var i = 0; i < l; i++) {
+	    			p = platforms[i];
+	    			reg = new RegExp(p,"i"); //正则设备匹配，i表示执行对大小写敏感的匹配
+	    			if (userAgent.match(reg)) {
+	    				platformType = p;
+	    			}
+
+	    		}
+	    		document.body.setAttribute("mob-platformType",platformType);
+
+
+	    	}
+	    	mobPlatformType();
+	    }
+
+
+
+	</script>
+</body>
+</html>
